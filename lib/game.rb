@@ -4,10 +4,10 @@ class Game
 	end
 
 	def over?
-		turn.count == 13
+		#turn.count == 13
 	end
 
-	def winner
-		@players.max_by {|player| player.points}
-	end
+# 	def winner
+# 		@players.max_by {|player| player.points}
+# 	end
 end

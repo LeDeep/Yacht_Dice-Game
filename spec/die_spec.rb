@@ -1,6 +1,6 @@
 require '../lib/die'
 
-dice = Die.new
+die = Die.new
 puts "#{die.roll} should return nil"
 
 die = Die.new

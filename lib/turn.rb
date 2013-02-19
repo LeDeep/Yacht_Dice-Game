@@ -14,39 +14,39 @@ class Turn
 
 	def score(roll)
 		if yacht(roll)
-			50
+			score = 50
 		elsif four(roll)
-			4 * roll[2]
-		elsif fullhouse(roll)
-			25
+			score = 4 * roll[2]
 		elsif straight(roll)
-			40
+			score = 40
+		elsif fullhouse(roll)
+			score = 25
 		else
-			0	
+			score = 0
 		end
 
-		@points += score(roll)
+		@points += score
 	end
 
 	private
 
-
 	def yacht(roll)
-		(roll[0] = roll[1] = roll[2] = roll[3] = roll[4])
+		roll[0] == roll[1] && roll[1] == roll[2] && roll[2] == roll[3] && roll[3] == roll[4]
 	end
 
 	def four(roll)
-		roll.sort
-		(roll[0] = roll[1] = roll[2] = roll[3]) || (roll[1] = roll[2] = roll[3] = roll[4])
-	end
-
-	def fullhouse(roll)
-		roll.uniq == 2
+		roll.sort!
+		(roll[0] == roll[1] && roll[1] == roll[2] && roll[2] == roll[3]) || (roll[1] == roll[2] && roll[2] == roll[3] && roll[3] == roll[4])
 	end
 
 	def straight(roll)
-		roll.sort
-		(roll[0] == 1 && roll[1] == 2 && roll[2] == 3 && roll[3] == 4 && roll[4] == 5) ||
-		(roll[0] == 2 && roll[1] == 3 && roll[2] == 4 && roll[3] == 5 && roll[4] == 6)
+		roll.sort!
+		roll == [1, 2, 3, 4, 5] || roll == [2, 3, 4, 5, 6]
+		#(roll[0] == 1 && roll[1] == 2 && roll[2] == 3 && roll[3] == 4 && roll[4] == 5) || (roll[0] == 2 && roll[1] == 3 && roll[2] == 4 && roll[3] == 5 && roll[4] == 6)
 	end
+
+	def fullhouse(roll)
+		roll.uniq.count == 2
+	end
+
 end
