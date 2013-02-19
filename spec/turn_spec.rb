@@ -16,13 +16,11 @@ require '../lib/die'
 # p roll = die.roll!
 # p "#{turn.roll(Die.new)} should equal five random numbers between 1 and 6"
 
-turn = Turn.new(Player.new('Player1'))
-die = Die.new
-die.roll!
-p roll = die.roll
-p "#{turn.score(roll)} should equal 50 if all five numbers are same"
-#p "#{turn.roll(Die.new)} should equal 40 if sequence of five consecutive numbers"
-#p "#{turn.roll(Die.new)} should equal 25 if full house"
-#p "#{turn.roll(Die.new)} should equal (4 * number) if 4 numbers are same"
-#p "#{turn.score(roll)} should equal 0 if none of the above"
+# turn = Turn.new(Player.new('Player1'))
+# die = Die.new
+# die.roll!
+# p roll = die.roll
+# p "#{turn.score(roll)} should equal number of points for scorable combos."
 
+turn = Turn.new(Player.new('Player1'))
+puts "#{turn.over} should return false"
