@@ -1,4 +1,4 @@
-yacht
+Yacht_Dice Game
 =====
 
-a simple dice game
+Very first attempt at building something with Ruby. Utilized Object-Oriented design to implement Die, Player, Turn, and Game classes
